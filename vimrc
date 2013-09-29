@@ -75,18 +75,20 @@ set tm=500
 
 " TAB setting{
    set expandtab        "replace <TAB> with spaces
-   set softtabstop=3 
-   set shiftwidth=3 
+   set softtabstop=4
+   set shiftwidth=4 
 
    au FileType Makefile set noexpandtab
 "}      							
 
 " status line {
-set laststatus=2
-set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \ 
-set statusline+=\ \ \ [%{&ff}/%Y] 
-set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
-set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
+if has("gui_running")
+    set laststatus=2
+    set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \ 
+    set statusline+=\ \ \ [%{&ff}/%Y] 
+    set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
+    set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
+endif 
 
 function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "")
@@ -289,7 +291,7 @@ let g:tex_flavor='latex'
 " --- AutoClose - Inserts matching bracket, paren, brace or quote 
 " fixed the arrow key problems caused by AutoClose
 if !has("gui_running")	
-   set term=linux
+   set term=xterm
    imap OA <ESC>ki
    imap OB <ESC>ji
    imap OC <ESC>li
@@ -336,3 +338,13 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile c
 
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
+
+set number
+set nowrap
+" For Haskell 
+let hs_highlight_delimiters = 1 " 高亮定界符 
+let hs_highlight_boolean = 1 " 把True和False识别为关键字 
+let hs_highlight_types = 1 " 把基本类型的名字识别为关键字 
+let hs_highlight_more_types = 1 " 把更多常用类型识别为关键字 
+let hs_highlight_debug = 1 " 高亮调试函数的名字 
+let hs_allow_hash_operator = 1 " 阻止把#高亮为错误

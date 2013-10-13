@@ -39,7 +39,7 @@ syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
 if has("gui_running")	" GUI color and font settings
-  set guifont=Source_Code_Pro:h12
+  set guifont=Source\ Code\ Pro\ 12
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line

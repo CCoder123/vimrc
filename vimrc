@@ -349,3 +349,5 @@ let hs_highlight_types = 1 " 把基本类型的名字识别为关键字
 let hs_highlight_more_types = 1 " 把更多常用类型识别为关键字 
 let hs_highlight_debug = 1 " 高亮调试函数的名字 
 let hs_allow_hash_operator = 1 " 阻止把#高亮为错误
+
+let g:ycm_global_ycm_extra_conf = '${HOME}/.vim/.ycm_extra_conf.py'

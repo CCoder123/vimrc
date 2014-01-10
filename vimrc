@@ -39,8 +39,8 @@ syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
 if has("gui_running")	" GUI color and font settings
-"  set guifont=Source\ Code\ Pro\ Medium\ 12
-  set guifont=DejaVu\ Sans\ Mono\ 12
+  set guifont=Source\ Code\ Pro\ 12
+"  set guifont=DejaVu\ Sans\ Mono\ 12
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
@@ -80,7 +80,13 @@ set tm=500
    set shiftwidth=4 
 
    au FileType Makefile set noexpandtab
+
+   " for nessdb development
+   augroup nessdb
+        au BufRead,BufEnter /home/kedebug/develop/nessdb/* set noet sts=8 sw=8
+   augroup END
 "}      							
+
 
 " status line {
 if has("gui_running")
@@ -342,7 +348,6 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile c
 let g:gitgutter_enabled = 0
 
 set number
-set nowrap
 " For Haskell 
 let hs_highlight_delimiters = 1 " 高亮定界符 
 let hs_highlight_boolean = 1 " 把True和False识别为关键字 
@@ -352,3 +357,12 @@ let hs_highlight_debug = 1 " 高亮调试函数的名字
 let hs_allow_hash_operator = 1 " 阻止把#高亮为错误
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
+" nerdtree
+if has('gui_running')
+    au vimenter * NERDTree
+    let g:NERDTreeWinSize=20
+
+    set guioptions-=T
+endif 
+

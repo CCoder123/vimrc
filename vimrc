@@ -364,5 +364,7 @@ if has('gui_running')
     let g:NERDTreeWinSize=20
 
     set guioptions-=T
+    set guioptions-=L
+    set guioptions-=r
 endif 
 

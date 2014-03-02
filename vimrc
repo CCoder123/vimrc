@@ -81,9 +81,9 @@ set tm=500
 
    au FileType Makefile set noexpandtab
 
-   " for nessdb development
-   augroup nessdb
-        au BufRead,BufEnter /home/kedebug/develop/nessdb/* set noet sts=8 sw=8
+   " for golang
+   augroup golang 
+        au BufRead,BufEnter /home/kedebug/develop/golang/* set noet sts=8 sw=8
    augroup END
 "}      							
 

@@ -83,7 +83,7 @@ set tm=500
 
    " for golang
    augroup golang 
-        au BufRead,BufEnter /home/kedebug/develop/golang/* set noet sts=8 sw=8
+        au BufRead,BufEnter $GOPATH/* set noet sts=8 sw=8
    augroup END
 "}      							
 
